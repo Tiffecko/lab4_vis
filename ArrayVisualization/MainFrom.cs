@@ -1,14 +1,7 @@
 ﻿using ArrayVisualization.Algorithms;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
 using System.Drawing;
-using System.Linq;
-using System.Media;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ArrayVisualization
@@ -47,24 +40,10 @@ namespace ArrayVisualization
         {
             var algorithms = new List<Algorithm>() {
                 new ShuffleAlgorithm(this.scene.Array),
-                new ReverseAlgorithm(this.scene.Array),
                 new BubbleSortAlgorithm(this.scene.Array),
                 new MergeSortAlgorithm(this.scene.Array),
-                new InPlaceMergeSortAlgorithm(this.scene.Array),
-                new HeapSortAlgorithm(this.scene.Array),
-                new SelectionSortAlgorithm(this.scene.Array),
-                new InsertionSortAlgorithm(this.scene.Array),
                 new QuickSortAlgorithm(this.scene.Array),
-                new ExchangeSortAlgorithm(this.scene.Array),
-                new CocktailSortAlgorithm(this.scene.Array),
-                new CombSortAlgorithm(this.scene.Array),
-                new ShellSortAlgorithm(this.scene.Array),
-                new OddEvenSortAlgorithm(this.scene.Array),
-                new GnomeSortAlgorithm(this.scene.Array),
-                new TimSortAlgorithm(this.scene.Array),
-                new IntrospectiveSortAlgorithm(this.scene.Array),
-                new CycleSortAlgorithm(this.scene.Array),
-                new BogoSortAlgorithm(this.scene.Array),
+                new CocktailSortAlgorithm(this.scene.Array)
             };
 
             this.lbAlgorithms.Items.Clear();
@@ -100,18 +79,19 @@ namespace ArrayVisualization
         }
 
         private void timer_Tick(object sender, EventArgs e)
-        {  
-           for (int i = 0; i < I; i++)
-           {
+        {
+            for (int i = 0; i < I; i++)
+            {
                 this.scene.Tick();
                 Invalidate();
-           }
+            }
 
             if (!this.scene.Algorithm.HasFinished())
             {
                 this.cbAllowDuplicates.Enabled = false;
                 this.nudN.Enabled = false;
-            } else
+            }
+            else
             {
                 this.cbAllowDuplicates.Enabled = true;
                 this.nudN.Enabled = true;
@@ -164,7 +144,8 @@ namespace ArrayVisualization
             {
                 rbBarMode.Checked = false;
                 rbPointMode.Checked = true;
-            } else if (rbPointMode.Checked)
+            }
+            else if (rbPointMode.Checked)
             {
                 rbBarMode.Checked = true;
                 rbPointMode.Checked = false;
@@ -202,7 +183,8 @@ namespace ArrayVisualization
             {
                 this.timer.Interval = 1;
                 this.I = value;
-            } else
+            }
+            else
             {
                 this.timer.Interval = -value;
                 this.I = 1;
@@ -252,7 +234,8 @@ namespace ArrayVisualization
             if (this.scene.Paused)
             {
                 this.btnPause.Text = "Pause";
-            } else
+            }
+            else
             {
                 this.btnPause.Text = "Resume";
             }

@@ -1,11 +1,7 @@
 ﻿using ArrayVisualization.Algorithms;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ArrayVisualization
 {
@@ -85,7 +81,7 @@ namespace ArrayVisualization
         {
             g.Clear(Color.Black);
 
-            var redBrush   = new SolidBrush(Color.Red);
+            var redBrush = new SolidBrush(Color.Red);
             var greenBrush = new SolidBrush(Color.Green);
             var yellowBrush = new SolidBrush(Color.Yellow);
             var blueBrush = new SolidBrush(Color.Blue);
@@ -128,17 +124,19 @@ namespace ArrayVisualization
                 if (this.BarMode)
                 {
                     g.FillRectangle(brush, (float)x, y, (float)w, h);
-                } else
+                }
+                else
                 {
                     g.FillRectangle(brush, (float)x, y, w, w);
                 }
-               
+
                 if (w > 4)
                 {
                     if (this.BarMode)
                     {
                         g.DrawRectangle(grayPen, (float)x, y, (float)w, h);
-                    } else
+                    }
+                    else
                     {
                         g.DrawRectangle(grayPen, (float)x, y, (float)w, w);
                     }
@@ -150,14 +148,16 @@ namespace ArrayVisualization
             if (delay > 1.0f && delay < 1000.0f)
             {
                 delayString = String.Format("{0:0}ms", delay);
-            } else if (delay > 1000.0f)
+            }
+            else if (delay > 1000.0f)
             {
                 delayString = String.Format("{0:0.##}s", delay / 1000.0f);
-            } else
+            }
+            else
             {
                 delayString = String.Format("{0:0.##}ns", delay * 1000.0f);
             }
-            g.DrawString(String.Format("N: {0}, Algorithm Name: {1}, {4}, Delay: {2}, Array Accesses: {3}", this.Array.Count, this.Algorithm.ToString(), delayString, this.Algorithm.Array.Accesses, "State: " + (this.Algorithm.HasFinished() ? "[Finished]": "[In Progress]")), new Font("Arial", 8), whiteBrush, 200, 10);
+            g.DrawString(String.Format("N: {0}, Algorithm Name: {1}, {4}, Delay: {2}, Array Accesses: {3}", this.Array.Count, this.Algorithm.ToString(), delayString, this.Algorithm.Array.Accesses, "State: " + (this.Algorithm.HasFinished() ? "[Finished]" : "[In Progress]")), new Font("Arial", 8), whiteBrush, 200, 10);
             whiteBrush.Dispose();
         }
     }

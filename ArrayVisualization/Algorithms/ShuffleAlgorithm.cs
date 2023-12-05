@@ -15,7 +15,7 @@ namespace ArrayVisualization.Algorithms
     {
         public static Random RANDOM = new Random();
 
-        public ShuffleAlgorithm(Array array) : base("Shuffle (Fisher-Yates)", array)
+        public ShuffleAlgorithm(Array array) : base("Shuffle", array)
         {
         }
 
